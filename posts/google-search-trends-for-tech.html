@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>A Developer’s Guide to Google Search Trends for Tech in 2025 — DEV Blogs</title>
+  <meta name="description" content="Tap into Google Trends to find your next project idea, identify emerging technologies, and stay ahead of the curve. This guide shows you how developers can leve" />
+  <link rel="stylesheet" href="../assets/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+</head>
+<body>
+  <div class="container" style="max-width:900px">
+    <a href="../" style="color:var(--muted);text-decoration:none">&larr; Back to blog</a>
+    <article class="post-hero">
+      <img src="https://picsum.photos/seed/trends1/1200/800" alt="A Developer’s Guide to Google Search Trends for Tech in 2025">
+      <div class="small-muted">2024-07-01 • 9 min read • by David Chen</div>
+      <h1 style="margin:0">A Developer’s Guide to Google Search Trends for Tech in 2025</h1>
+    </article>
+    <div id="post" class="post-body">
+      <div class="small-muted">Loading content…</div>
+    </div>
+    <div style="height:40px"></div>
+  </div>
+
+  <script>
+    async function render(){
+      try{
+        const md = await (await fetch('../posts/google-search-trends-for-tech.md')).text();
+        const html = marked.parse(md);
+        document.getElementById('post').innerHTML = html;
+        document.querySelectorAll('pre code').forEach((el)=>{hljs.highlightElement(el)});
+      }catch(e){
+        document.getElementById('post').innerHTML = '<p style="color:var(--muted)">Failed to load post content.</p>';
+      }
+    }
+    render();
+  </script>
+</body>
+</html>

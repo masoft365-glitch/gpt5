@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Web3 and the Quest for a Decentralized Future — DEV Blogs</title>
+  <meta name="description" content="Beyond the hype of cryptocurrencies, Web3 promises a paradigm shift towards a more open, transparent, and user-centric internet. What does this mean for users a" />
+  <link rel="stylesheet" href="../assets/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+</head>
+<body>
+  <div class="container" style="max-width:900px">
+    <a href="../" style="color:var(--muted);text-decoration:none">&larr; Back to blog</a>
+    <article class="post-hero">
+      <img src="https://picsum.photos/seed/web3-1/1200/800" alt="Web3 and the Quest for a Decentralized Future">
+      <div class="small-muted">2024-07-10 • 10 min read • by David Chen</div>
+      <h1 style="margin:0">Web3 and the Quest for a Decentralized Future</h1>
+    </article>
+    <div id="post" class="post-body">
+      <div class="small-muted">Loading content…</div>
+    </div>
+    <div style="height:40px"></div>
+  </div>
+
+  <script>
+    async function render(){
+      try{
+        const md = await (await fetch('../posts/the-decentralized-future-of-web3.md')).text();
+        const html = marked.parse(md);
+        document.getElementById('post').innerHTML = html;
+        document.querySelectorAll('pre code').forEach((el)=>{hljs.highlightElement(el)});
+      }catch(e){
+        document.getElementById('post').innerHTML = '<p style="color:var(--muted)">Failed to load post content.</p>';
+      }
+    }
+    render();
+  </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>A Deep Dive into React Server Components — DEV Blogs</title>
+  <meta name="description" content="React Server Components (RSCs) are here to change how we build React applications. Learn what they are, why they matter, and how to start using them effectively" />
+  <link rel="stylesheet" href="../assets/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+</head>
+<body>
+  <div class="container" style="max-width:900px">
+    <a href="../" style="color:var(--muted);text-decoration:none">&larr; Back to blog</a>
+    <article class="post-hero">
+      <img src="https://picsum.photos/seed/react1/1200/800" alt="A Deep Dive into React Server Components">
+      <div class="small-muted">2024-07-12 • 12 min read • by Samantha Lee</div>
+      <h1 style="margin:0">A Deep Dive into React Server Components</h1>
+    </article>
+    <div id="post" class="post-body">
+      <div class="small-muted">Loading content…</div>
+    </div>
+    <div style="height:40px"></div>
+  </div>
+
+  <script>
+    async function render(){
+      try{
+        const md = await (await fetch('../posts/mastering-react-server-components.md')).text();
+        const html = marked.parse(md);
+        document.getElementById('post').innerHTML = html;
+        document.querySelectorAll('pre code').forEach((el)=>{hljs.highlightElement(el)});
+      }catch(e){
+        document.getElementById('post').innerHTML = '<p style="color:var(--muted)">Failed to load post content.</p>';
+      }
+    }
+    render();
+  </script>
+</body>
+</html>

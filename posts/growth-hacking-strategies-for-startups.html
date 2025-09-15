@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Top 5 Growth Hacking Strategies for Modern Startups — DEV Blogs</title>
+  <meta name="description" content="In a competitive market, traditional marketing isn't enough. Discover five powerful growth hacking strategies to accelerate your startup's growth trajectory." />
+  <link rel="stylesheet" href="../assets/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+</head>
+<body>
+  <div class="container" style="max-width:900px">
+    <a href="../" style="color:var(--muted);text-decoration:none">&larr; Back to blog</a>
+    <article class="post-hero">
+      <img src="https://picsum.photos/seed/business1/1200/800" alt="Top 5 Growth Hacking Strategies for Modern Startups">
+      <div class="small-muted">2024-07-05 • 7 min read • by Alex Johnson</div>
+      <h1 style="margin:0">Top 5 Growth Hacking Strategies for Modern Startups</h1>
+    </article>
+    <div id="post" class="post-body">
+      <div class="small-muted">Loading content…</div>
+    </div>
+    <div style="height:40px"></div>
+  </div>
+
+  <script>
+    async function render(){
+      try{
+        const md = await (await fetch('../posts/growth-hacking-strategies-for-startups.md')).text();
+        const html = marked.parse(md);
+        document.getElementById('post').innerHTML = html;
+        document.querySelectorAll('pre code').forEach((el)=>{hljs.highlightElement(el)});
+      }catch(e){
+        document.getElementById('post').innerHTML = '<p style="color:var(--muted)">Failed to load post content.</p>';
+      }
+    }
+    render();
+  </script>
+</body>
+</html>
